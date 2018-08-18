@@ -7,8 +7,10 @@ output:
   keep_md: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+boxes <- c(300,400,500,600,20)
+plot(boxes)
+boxplot(boxes)
 ```
 
 ## R Markdown
