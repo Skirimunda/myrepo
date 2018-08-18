@@ -2,7 +2,9 @@
 title: "RMD_practice"
 author: "skirimunda"
 date: "August 18, 2018"
-output: html_document
+output: 
+ html_document:
+  keep_md: true
 ---
 
 ```{r setup, include=FALSE}
