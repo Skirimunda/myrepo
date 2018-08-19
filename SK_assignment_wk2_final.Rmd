@@ -1,0 +1,39 @@
+---
+title: "A modified reproduction of the DSAIDE Level 2 vignette part"
+author: "skirimunda"
+date: "August 18, 2018"
+documentclass: article
+output:
+  html_document: 
+    toc: false
+bibliography: library.bib
+
+---
+
+
+# Instructions
+R_markdown exercise and modification of the DSAIDE level 2 vignette part.
+
+```{r}
+library(DSAIDE)
+
+Ivec = seq(1,101,by=10) #values of recovery rate, g, for which to run the simulation 
+peak = rep(0,length(Ivec)) #this will record the peak values for each g
+for (n in 1:length(Ivec))
+{
+  #call the simulator function with different values of g each time
+  result <- simulate_introduction(S0 = 500, I0 = Ivec[n], tmax = 200, g = 0.3,  b = 1/2500)
+  peak[n] <- max(result$ts[,"I"]) #record max number of infected for each value of g
+}
+#plot final result
+plot(Ivec,peak,type='p',xlab='Initial number of infected',ylab='Max number of infected')
+
+```
+
+
+In this exercise, I have changed the code such that the for loop is over the initial number of infected (from 1 to 101 in steps of 10) instead of the infection rate g. The resulting plot shows peak infected as a function of initial number of infected.
+
+This work is based on applications and libraries in R program as designed by Andreas and colleagues at the University of Goergia [@Handel2017]
+
+
+# References
